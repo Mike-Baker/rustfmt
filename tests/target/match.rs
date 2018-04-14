@@ -486,8 +486,8 @@ fn issue_2152() {
 fn match_with_beginning_vert() {
     let x = Foo::A;
     match x {
-        | Foo::A | Foo::B => println!("AB"),
-        | Foo::C => println!("C"),
+        Foo::A | Foo::B => println!("AB"),
+        Foo::C => println!("C"),
     }
 }
 
