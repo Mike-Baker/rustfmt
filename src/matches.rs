@@ -260,7 +260,7 @@ fn rewrite_match_arm(
         context,
         &ptr_vec_to_ref_vec(&arm.pats),
         &arm.guard,
-        beginning_vert.is_some(),
+        false,
         shape,
     ).and_then(|pats_str| {
         combine_strs_with_missing_comments(
