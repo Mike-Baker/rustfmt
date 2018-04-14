@@ -485,3 +485,15 @@ fn issue_2376() {
         }
     }
 }
+
+// #2621
+// Strip leading `|` in match arm patterns
+fn issue_2621() {
+    let x = Foo::A;
+    match x {
+        | Foo::A
+        | Foo::B => println!("AB"),
+        | Foo::C => println!("C"),
+        Foo::D => println!("D"),
+    }
+}
