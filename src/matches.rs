@@ -255,21 +255,18 @@ fn rewrite_match_arm(
     } else {
         (mk_sp(arm.span().lo(), arm.span().lo()), String::new())
     };
-    let pats_str = rewrite_match_pattern(
-        context,
-        &ptr_vec_to_ref_vec(&arm.pats),
-        &arm.guard,
-        shape,
-    ).and_then(|pats_str| {
-        combine_strs_with_missing_comments(
-            context,
-            &attrs_str,
-            &pats_str,
-            missing_span,
-            shape,
-            false,
-        )
-    })?;
+    let pats_str =
+        rewrite_match_pattern(context, &ptr_vec_to_ref_vec(&arm.pats), &arm.guard, shape)
+            .and_then(|pats_str| {
+                combine_strs_with_missing_comments(
+                    context,
+                    &attrs_str,
+                    &pats_str,
+                    missing_span,
+                    shape,
+                    false,
+                )
+            })?;
     rewrite_match_body(
         context,
         &arm.body,
